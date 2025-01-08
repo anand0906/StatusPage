@@ -1,0 +1,34 @@
+<header class="app-header">
+  <div class="logo">
+    <span class="app-title">Status Dashboard</span>
+  </div>
+  <div class="user-actions">
+    <button mat-icon-button aria-label="Notifications">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <div *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+      <button mat-raised-button (click)="logout()" color="primary">
+        Logout
+      </button>
+    </div>
+    <ng-template #loggedOut>
+      <button
+        mat-raised-button
+        (click)="authService.loginWithRedirect()"
+        color="primary"
+      >
+        Login
+      </button>
+    </ng-template>
+  </div>
+</header>
+<router-outlet />
+<footer class="app-footer">
+  <div class="footer-content">
+    <span>© {{ 2024 }} Status Dashboard. All rights reserved.</span>
+    <nav>
+      <a mat-button routerLink="/privacy">Privacy Policy</a>
+      <a mat-button routerLink="/terms">Terms of Service</a>
+    </nav>
+  </div>
+</footer>

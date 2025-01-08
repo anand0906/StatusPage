@@ -1,0 +1,35 @@
+.incident-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .spacer {
+      flex: 1;
+    }
+  }
+
+  mat-card {
+    padding: 20px;
+
+    mat-table {
+      width: 100%;
+    }
+
+    mat-header-cell,
+    mat-cell {
+      text-align: left;
+      padding: 8px 16px;
+    }
+
+    mat-chip {
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+}

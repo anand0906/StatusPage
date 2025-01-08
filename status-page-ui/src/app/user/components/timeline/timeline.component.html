@@ -1,0 +1,24 @@
+<div class="timeline-container">
+  <h2>Recent Incidents & Status Changes</h2>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let event of timelineData()">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+        <span class="timeline-meta">
+          <mat-icon>schedule</mat-icon> {{ event.timestamp | date : "short" }}
+        </span>
+        <div *ngIf="event.service" class="service-info">
+          <mat-icon>build</mat-icon> <strong>{{ event.service }}</strong>
+        </div>
+        <div *ngIf="event.status" class="status-info">
+          <mat-icon>info</mat-icon>
+          <span [ngClass]="getStatusClass(event.status)">
+            {{ event.status }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

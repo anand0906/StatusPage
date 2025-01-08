@@ -1,0 +1,166 @@
+.status-page {
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+}
+
+.status-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.status-header h1 {
+  font-size: 28px;
+  color: #1976d2;
+  margin-bottom: 8px;
+}
+
+.status-header p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Services Section */
+.services-section {
+  margin-bottom: 40px;
+}
+
+.services-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.service-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.service-info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-operational {
+  background-color: #4caf50;
+}
+
+.status-degraded {
+  background-color: #ff9800;
+}
+
+.status-partial {
+  background-color: #ff5722;
+}
+
+.status-major {
+  background-color: #f44336;
+}
+
+/* Incidents Section */
+.incidents-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.no-incidents {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+}
+
+.incident-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.incident-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #f44336;
+}
+
+.incident-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.incident-timestamp {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status-header h1 {
+    font-size: 24px;
+  }
+
+  .service-card,
+  .incident-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-badge {
+    margin-top: 10px;
+  }
+}
+
+.skeleton-container {
+  padding: 16px;
+}
+
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin: 8px 0;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-header {
+  height: 20px;
+  width: 50%;
+}
+
+.skeleton-text {
+  height: 15px;
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}

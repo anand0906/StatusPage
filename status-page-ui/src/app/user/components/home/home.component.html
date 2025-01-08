@@ -1,0 +1,59 @@
+<div class="status-page">
+  <!-- Header -->
+  <header class="status-header">
+    <h1>System Status</h1>
+    <p>Real-time updates on the current health of our services.</p>
+  </header>
+  <mat-tab-group>
+    <mat-tab label="Service Status">
+      <section class="services-section">
+        <h2>Service Status</h2>
+        <div *ngIf="services.length === 0" class="no-incidents">
+          <div class="skeleton-container">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+        <div class="service-card" *ngFor="let service of services">
+          <div class="service-info">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+          </div>
+          <span class="status-badge" [ngClass]="getStatusClass(service.status)">
+            {{ service.status }}
+          </span>
+        </div>
+      </section>
+    </mat-tab>
+    <mat-tab label="Incidents">
+      <section class="incidents-section">
+        <h2>Current Incidents</h2>
+        <div *ngIf="incidents.length === 0" class="no-incidents">
+          <div class="skeleton-container">
+            <div class="skeleton skeleton-header"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+        <div class="incident-card" *ngFor="let incident of incidents">
+          <div>
+            <h3>{{ incident.title }}</h3>
+            <p>{{ incident.description }}</p>
+            <span class="incident-timestamp">{{
+              incident.timestamp | date : "medium"
+            }}</span>
+          </div>
+          <span
+            class="status-badge"
+            [ngClass]="getStatusClass(incident.status)"
+          >
+            {{ incident.status }}
+          </span>
+        </div>
+      </section>
+    </mat-tab>
+    <mat-tab label="Recent Updates">
+      <app-timeline [timelineData]="issues"></app-timeline>
+    </mat-tab>
+  </mat-tab-group>
+</div>

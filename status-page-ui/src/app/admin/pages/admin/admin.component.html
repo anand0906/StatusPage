@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="logo">
+    <mat-icon>apps</mat-icon>
+    Admin
+  </span>
+  <span class="spacer"></span>
+  <button mat-button (click)="router.navigateByUrl('/admin/services')">
+    Services
+  </button>
+  <button mat-button (click)="router.navigateByUrl('/admin/incidents')">
+    Incidents
+  </button>
+  <div *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
+  <ng-template #loggedOut>
+    <button mat-button (click)="authService.loginWithRedirect()">Login</button>
+  </ng-template>
+</mat-toolbar>
+
+<router-outlet />
+
+<mat-toolbar color="accent" class="footer-toolbar">
+  <div class="footer-content">
+    <div class="footer-links">
+      <a mat-button routerLink="/privacy">Privacy Policy</a>
+      <a mat-button routerLink="/terms">Terms of Service</a>
+    </div>
+    <div class="footer-text">
+      &copy; {{ currentYear }} MyApp. All rights reserved.
+    </div>
+  </div>
+</mat-toolbar>
