@@ -97,14 +97,26 @@ TEMPLATES = [
 
 ASGI_APPLICATION = 'statuspagebackend.asgi.application'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': '',
+    }
+}
+
+# Replace REDIS_PASSWORD, REDIS_HOST, and REDIS_PORT with your Aiven credentials.
+
 CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],  # Replace with your Redis server
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [
+               ('')
+            ],
         },
     },
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
